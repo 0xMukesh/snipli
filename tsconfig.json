@@ -4,11 +4,12 @@
     "importHelpers": true,
     "module": "commonjs",
     "outDir": "dist",
-    "rootDir": "src",
+    "rootDir": ".",
     "strict": true,
-    "target": "es2019"
+    "target": "es2019",
+    "esModuleInterop": true,
+    "resolveJsonModule": true
   },
-  "include": [
-    "src/**/*"
-  ]
+  "include": ["src/**/*", "package.json"],
+  "exclude": ["src/server/**/*"]
 }
