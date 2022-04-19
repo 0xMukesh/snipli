@@ -13,14 +13,14 @@ const authorizeViaCli = async () => {
     .prompt({
       name: "openBrowser",
       type: "confirm",
-      message: "👀 Would you like to open the browser to login?",
+      message: "Would you like to open the browser to login?",
       default: true,
     })
     .then(async (answers) => {
       if (!answers.openBrowser) {
         console.log(
-          chalk.yellow(
-            "⚠️ If you're not authorized,\nYou won't be able to use snipli."
+          chalk.yellowBright(
+            "\nIf you're not authorized,\nYou won't be able to use snipli."
           )
         );
         return;
@@ -40,28 +40,24 @@ const authorizeViaCli = async () => {
           resolve = _resolve;
         });
 
-        const authApiResponse = await axios.get(`${api}/authorize`);
+        const authAPI = await axios.post(`${api}/authorize`);
 
-        app.get("/callback", (req: Request, res: Response) => {
+        app.get("/callback", async (req: Request, res: Response) => {
           resolve(req.query.code);
-          res.redirect("https://www.scam.com/");
+          res.redirect("https://noteli.tech/done");
         });
 
-        const authUrl = authApiResponse.data["url"];
-        console.log(authUrl);
+        const authUrl = await authAPI.data["url"];
+
         open(authUrl);
 
         const code = await p;
 
-        const response = await axios.post(`${api}/token`, {
-          code: code,
-        });
-        console.log(response.data);
+        const response = await axios.post(`${api}/token`, { code });
+
         const access_token = response.data.token;
 
-        // const user = await getUser(access_token);
-
-        tokenConfig(access_token);
+        await tokenConfig(access_token);
 
         server.close();
 

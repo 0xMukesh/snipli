@@ -1,14 +1,17 @@
 import fs from "fs";
-import os from "os";
+import objectPath from "object-path";
 
 import { tokenConfigFileLocation } from "../constants/constants";
 
 const getToken = () => {
   try {
-    const token = fs.readFileSync(tokenConfigFileLocation, {
-      encoding: "utf-8",
-    });
-    return token;
+    const token = JSON.parse(
+      fs.readFileSync(tokenConfigFileLocation, {
+        encoding: "utf-8",
+      })
+    );
+
+    return token["token"];
   } catch {
     return null;
   }

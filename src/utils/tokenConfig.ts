@@ -1,16 +1,16 @@
 import fs from "fs";
 import path from "path";
 import chalk from "chalk";
-import os from "os";
 
 import { tokenConfigFileLocation } from "../constants/constants";
 
-const tokenConfig = (token: string) => {
+const tokenConfig = async (token: string) => {
   try {
-    fs.writeFileSync(tokenConfigFileLocation, token);
-    console.log(chalk.green("✅ Token has been saved successfully!"));
+    fs.mkdirSync(path.dirname(tokenConfigFileLocation), { recursive: true });
+    fs.writeFileSync(tokenConfigFileLocation, JSON.stringify({ token: token }));
+    console.log(chalk.green("\nToken has been saved successfully!"));
   } catch (err) {
-    console.log(chalk.red("❌ Error while saving token!"));
+    console.log(chalk.red("\nAn error occurred while saving token!"));
     console.log(chalk.redBright(err));
   }
 };

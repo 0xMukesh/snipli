@@ -12,7 +12,7 @@ export default class Login extends Command {
     if (getToken() === null) {
       await authorizeViaCli();
     } else {
-      console.log(chalk.yellow("⚠️ You're already logged in!"));
+      console.log(chalk.yellow("\nYou're already logged in!"));
     }
   }
 }
