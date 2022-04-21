@@ -6,7 +6,7 @@ import axios from "axios";
 
 import tokenConfig from "../utils/tokenConfig";
 
-import { apiUrl } from "../constants/constants";
+import { apiUrl, authSuccessRedirectUrl } from "../constants/constants";
 
 const authorizeViaCli = async () => {
   inquirer
@@ -44,7 +44,7 @@ const authorizeViaCli = async () => {
 
         app.get("/callback", async (req: Request, res: Response) => {
           resolve(req.query.code);
-          res.redirect("https://noteli.tech/done");
+          res.redirect(authSuccessRedirectUrl);
         });
 
         const authUrl = await authAPI.data["url"];

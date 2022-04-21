@@ -8,6 +8,8 @@ import getToken from "../utils/getToken";
 export default class Login extends Command {
   static description = "🔑 Login into snipli via GitHub";
 
+  static examples = ["snipli login"];
+
   async run() {
     if (getToken() === null) {
       await authorizeViaCli();

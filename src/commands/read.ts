@@ -6,9 +6,9 @@ import readGist from "../lib/readGist";
 import getToken from "../utils/getToken";
 
 export default class Read extends Command {
-  static description = "📖 Read a Gist via using it's ID";
+  static description = "📖 Read a gist locally using vim";
 
-  static examples = ["snipli read -i=ca22a324f761cd241ace4c9a35286496"];
+  static examples = ["snipli read --id=ca22a324f761cd241ace4c9a35286496"];
 
   static flags = {
     id: Flags.string({
@@ -19,6 +19,8 @@ export default class Read extends Command {
   };
 
   async run() {
+    const { flags } = await this.parse(Read);
+
     if (getToken() === null) {
       console.log(
         chalk.redBright(
@@ -26,7 +28,6 @@ export default class Read extends Command {
         )
       );
     }
-    const { flags } = await this.parse(Read);
 
     readGist(flags.id as string);
   }
