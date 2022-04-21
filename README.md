@@ -19,14 +19,14 @@ oclif example Hello World CLI
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g gistly
-$ gistly COMMAND
+$ npm install -g snipli
+$ snipli COMMAND
 running command...
-$ gistly (--version)
-gistly/0.0.0 win32-x64 node-v16.13.0
-$ gistly --help [COMMAND]
+$ snipli (--version)
+snipli/0.0.1 win32-x64 node-v16.13.0
+$ snipli --help [COMMAND]
 USAGE
-  $ gistly COMMAND
+  $ snipli COMMAND
 ...
 ```
 <!-- usagestop -->
@@ -44,66 +44,97 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`gistly hello PERSON`](#gistly-hello-person)
-* [`gistly hello world`](#gistly-hello-world)
-* [`gistly help [COMMAND]`](#gistly-help-command)
-* [`gistly plugins`](#gistly-plugins)
-* [`gistly plugins:install PLUGIN...`](#gistly-pluginsinstall-plugin)
-* [`gistly plugins:inspect PLUGIN...`](#gistly-pluginsinspect-plugin)
-* [`gistly plugins:install PLUGIN...`](#gistly-pluginsinstall-plugin-1)
-* [`gistly plugins:link PLUGIN`](#gistly-pluginslink-plugin)
-* [`gistly plugins:uninstall PLUGIN...`](#gistly-pluginsuninstall-plugin)
-* [`gistly plugins:uninstall PLUGIN...`](#gistly-pluginsuninstall-plugin-1)
-* [`gistly plugins:uninstall PLUGIN...`](#gistly-pluginsuninstall-plugin-2)
-* [`gistly plugins update`](#gistly-plugins-update)
+* [`snipli create`](#snipli-create)
+* [`snipli delete`](#snipli-delete)
+* [`snipli edit`](#snipli-edit)
+* [`snipli help [COMMAND]`](#snipli-help-command)
+* [`snipli id`](#snipli-id)
+* [`snipli login`](#snipli-login)
+* [`snipli logout`](#snipli-logout)
+* [`snipli plugins`](#snipli-plugins)
+* [`snipli plugins:install PLUGIN...`](#snipli-pluginsinstall-plugin)
+* [`snipli plugins:inspect PLUGIN...`](#snipli-pluginsinspect-plugin)
+* [`snipli plugins:install PLUGIN...`](#snipli-pluginsinstall-plugin-1)
+* [`snipli plugins:link PLUGIN`](#snipli-pluginslink-plugin)
+* [`snipli plugins:uninstall PLUGIN...`](#snipli-pluginsuninstall-plugin)
+* [`snipli plugins:uninstall PLUGIN...`](#snipli-pluginsuninstall-plugin-1)
+* [`snipli plugins:uninstall PLUGIN...`](#snipli-pluginsuninstall-plugin-2)
+* [`snipli plugins:update`](#snipli-pluginsupdate)
+* [`snipli read`](#snipli-read)
+* [`snipli whoami`](#snipli-whoami)
 
-## `gistly hello PERSON`
+## `snipli create`
 
-Say hello
+🦄 Create a new snippet of your local file on gist.github.com
 
 ```
 USAGE
-  $ gistly hello [PERSON] -f <value>
-
-ARGUMENTS
-  PERSON  Person to say hello to
+  $ snipli create -f <value> -d <value> [-p]
 
 FLAGS
-  -f, --from=<value>  (required) Whom is saying hello
+  -d, --description=<value>  (required) Description of the gist
+  -f, --file=<value>         (required) Path to the file of which you want to create a gist
+  -p, --[no-]public          Whether the gist should be public or not
 
 DESCRIPTION
-  Say hello
+  🦄 Create a new snippet of your local file on gist.github.com
 
 EXAMPLES
-  $ oex hello friend --from oclif
-  hello friend from oclif! (./src/commands/hello/index.ts)
+  $ snipli create --file=code.ts --description='Need help at line 59 of file code.ts' --public
 ```
 
-_See code: [dist/commands/hello/index.ts](https://github.com/Kira272921/gistly/blob/v0.0.0/dist/commands/hello/index.ts)_
+_See code: [dist/src/commands/create.ts](https://github.com/Kira272921/snipli/blob/v0.0.1/dist/src/commands/create.ts)_
 
-## `gistly hello world`
+## `snipli delete`
 
-Say hello world
+🚚 Delete a gist
 
 ```
 USAGE
-  $ gistly hello world
+  $ snipli delete -i <value>
+
+FLAGS
+  -i, --id=<value>  (required) ID of the gist which is to be deleted
 
 DESCRIPTION
-  Say hello world
+  🚚 Delete a gist
 
 EXAMPLES
-  $ oex hello world
-  hello world! (./src/commands/hello/world.ts)
+  $ snipli delete --id=bfce776b3ad1145f764d89c296fec605
 ```
 
-## `gistly help [COMMAND]`
+_See code: [dist/src/commands/delete.ts](https://github.com/Kira272921/snipli/blob/v0.0.1/dist/src/commands/delete.ts)_
 
-Display help for gistly.
+## `snipli edit`
+
+✏ Edit an existing gist
 
 ```
 USAGE
-  $ gistly help [COMMAND] [-n]
+  $ snipli edit -i <value> -f <value> -d <value> [-p]
+
+FLAGS
+  -d, --description=<value>  (required) The description of the Gist
+  -f, --file=<value>         (required) The path of the file which has the edited content
+  -i, --id=<value>           (required) ID of the Gist which you are going to edit
+  -p, --[no-]public          Whether the Gist is public or not
+
+DESCRIPTION
+  ✏ Edit an existing gist
+
+EXAMPLES
+  $ snipli edit --id=ca22a324f761cd241ace4c9a35286496 --file=updated-code.ts --description='Updated the code' --public
+```
+
+_See code: [dist/src/commands/edit.ts](https://github.com/Kira272921/snipli/blob/v0.0.1/dist/src/commands/edit.ts)_
+
+## `snipli help [COMMAND]`
+
+Display help for snipli.
+
+```
+USAGE
+  $ snipli help [COMMAND] [-n]
 
 ARGUMENTS
   COMMAND  Command to show help for.
@@ -112,18 +143,72 @@ FLAGS
   -n, --nested-commands  Include all nested commands in the output.
 
 DESCRIPTION
-  Display help for gistly.
+  Display help for snipli.
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.10/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.12/src/commands/help.ts)_
 
-## `gistly plugins`
+## `snipli id`
+
+💡 Get the ID of a gist from it's link
+
+```
+USAGE
+  $ snipli id -l <value>
+
+FLAGS
+  -l, --link=<value>  (required) Link of the gist
+
+DESCRIPTION
+  💡 Get the ID of a gist from it's link
+
+EXAMPLES
+  $ snipli id --link=https://gist.github.com/Kira272921/bfce776b3ad1145f764d89c296fec605
+```
+
+_See code: [dist/src/commands/id.ts](https://github.com/Kira272921/snipli/blob/v0.0.1/dist/src/commands/id.ts)_
+
+## `snipli login`
+
+🔑 Login into snipli via GitHub
+
+```
+USAGE
+  $ snipli login
+
+DESCRIPTION
+  🔑 Login into snipli via GitHub
+
+EXAMPLES
+  $ snipli login
+```
+
+_See code: [dist/src/commands/login.ts](https://github.com/Kira272921/snipli/blob/v0.0.1/dist/src/commands/login.ts)_
+
+## `snipli logout`
+
+📤 Logout from snipli
+
+```
+USAGE
+  $ snipli logout
+
+DESCRIPTION
+  📤 Logout from snipli
+
+EXAMPLES
+  $ snipli logout
+```
+
+_See code: [dist/src/commands/logout.ts](https://github.com/Kira272921/snipli/blob/v0.0.1/dist/src/commands/logout.ts)_
+
+## `snipli plugins`
 
 List installed plugins.
 
 ```
 USAGE
-  $ gistly plugins [--core]
+  $ snipli plugins [--core]
 
 FLAGS
   --core  Show core plugins.
@@ -132,18 +217,18 @@ DESCRIPTION
   List installed plugins.
 
 EXAMPLES
-  $ gistly plugins
+  $ snipli plugins
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.0.11/src/commands/plugins/index.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.1.0/src/commands/plugins/index.ts)_
 
-## `gistly plugins:install PLUGIN...`
+## `snipli plugins:install PLUGIN...`
 
 Installs a plugin into the CLI.
 
 ```
 USAGE
-  $ gistly plugins:install PLUGIN...
+  $ snipli plugins:install PLUGIN...
 
 ARGUMENTS
   PLUGIN  Plugin to install.
@@ -165,23 +250,23 @@ DESCRIPTION
   the CLI without the need to patch and update the whole CLI.
 
 ALIASES
-  $ gistly plugins add
+  $ snipli plugins:add
 
 EXAMPLES
-  $ gistly plugins:install myplugin 
+  $ snipli plugins:install myplugin 
 
-  $ gistly plugins:install https://github.com/someuser/someplugin
+  $ snipli plugins:install https://github.com/someuser/someplugin
 
-  $ gistly plugins:install someuser/someplugin
+  $ snipli plugins:install someuser/someplugin
 ```
 
-## `gistly plugins:inspect PLUGIN...`
+## `snipli plugins:inspect PLUGIN...`
 
 Displays installation properties of a plugin.
 
 ```
 USAGE
-  $ gistly plugins:inspect PLUGIN...
+  $ snipli plugins:inspect PLUGIN...
 
 ARGUMENTS
   PLUGIN  [default: .] Plugin to inspect.
@@ -194,16 +279,18 @@ DESCRIPTION
   Displays installation properties of a plugin.
 
 EXAMPLES
-  $ gistly plugins:inspect myplugin
+  $ snipli plugins:inspect myplugin
 ```
 
-## `gistly plugins:install PLUGIN...`
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.1.0/src/commands/plugins/inspect.ts)_
+
+## `snipli plugins:install PLUGIN...`
 
 Installs a plugin into the CLI.
 
 ```
 USAGE
-  $ gistly plugins:install PLUGIN...
+  $ snipli plugins:install PLUGIN...
 
 ARGUMENTS
   PLUGIN  Plugin to install.
@@ -225,23 +312,25 @@ DESCRIPTION
   the CLI without the need to patch and update the whole CLI.
 
 ALIASES
-  $ gistly plugins add
+  $ snipli plugins:add
 
 EXAMPLES
-  $ gistly plugins:install myplugin 
+  $ snipli plugins:install myplugin 
 
-  $ gistly plugins:install https://github.com/someuser/someplugin
+  $ snipli plugins:install https://github.com/someuser/someplugin
 
-  $ gistly plugins:install someuser/someplugin
+  $ snipli plugins:install someuser/someplugin
 ```
 
-## `gistly plugins:link PLUGIN`
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.1.0/src/commands/plugins/install.ts)_
+
+## `snipli plugins:link PLUGIN`
 
 Links a plugin into the CLI for development.
 
 ```
 USAGE
-  $ gistly plugins:link PLUGIN
+  $ snipli plugins:link PLUGIN
 
 ARGUMENTS
   PATH  [default: .] path to plugin
@@ -259,16 +348,18 @@ DESCRIPTION
   command will override the user-installed or core plugin implementation. This is useful for development work.
 
 EXAMPLES
-  $ gistly plugins:link myplugin
+  $ snipli plugins:link myplugin
 ```
 
-## `gistly plugins:uninstall PLUGIN...`
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.1.0/src/commands/plugins/link.ts)_
+
+## `snipli plugins:uninstall PLUGIN...`
 
 Removes a plugin from the CLI.
 
 ```
 USAGE
-  $ gistly plugins:uninstall PLUGIN...
+  $ snipli plugins:uninstall PLUGIN...
 
 ARGUMENTS
   PLUGIN  plugin to uninstall
@@ -281,17 +372,17 @@ DESCRIPTION
   Removes a plugin from the CLI.
 
 ALIASES
-  $ gistly plugins unlink
-  $ gistly plugins remove
+  $ snipli plugins:unlink
+  $ snipli plugins:remove
 ```
 
-## `gistly plugins:uninstall PLUGIN...`
+## `snipli plugins:uninstall PLUGIN...`
 
 Removes a plugin from the CLI.
 
 ```
 USAGE
-  $ gistly plugins:uninstall PLUGIN...
+  $ snipli plugins:uninstall PLUGIN...
 
 ARGUMENTS
   PLUGIN  plugin to uninstall
@@ -304,17 +395,19 @@ DESCRIPTION
   Removes a plugin from the CLI.
 
 ALIASES
-  $ gistly plugins unlink
-  $ gistly plugins remove
+  $ snipli plugins:unlink
+  $ snipli plugins:remove
 ```
 
-## `gistly plugins:uninstall PLUGIN...`
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.1.0/src/commands/plugins/uninstall.ts)_
+
+## `snipli plugins:uninstall PLUGIN...`
 
 Removes a plugin from the CLI.
 
 ```
 USAGE
-  $ gistly plugins:uninstall PLUGIN...
+  $ snipli plugins:uninstall PLUGIN...
 
 ARGUMENTS
   PLUGIN  plugin to uninstall
@@ -327,17 +420,17 @@ DESCRIPTION
   Removes a plugin from the CLI.
 
 ALIASES
-  $ gistly plugins unlink
-  $ gistly plugins remove
+  $ snipli plugins:unlink
+  $ snipli plugins:remove
 ```
 
-## `gistly plugins update`
+## `snipli plugins:update`
 
 Update installed plugins.
 
 ```
 USAGE
-  $ gistly plugins update [-h] [-v]
+  $ snipli plugins:update [-h] [-v]
 
 FLAGS
   -h, --help     Show CLI help.
@@ -346,6 +439,45 @@ FLAGS
 DESCRIPTION
   Update installed plugins.
 ```
+
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.1.0/src/commands/plugins/update.ts)_
+
+## `snipli read`
+
+📖 Read a gist locally using vim
+
+```
+USAGE
+  $ snipli read -i <value>
+
+FLAGS
+  -i, --id=<value>  (required) ID of the Gist
+
+DESCRIPTION
+  📖 Read a gist locally using vim
+
+EXAMPLES
+  $ snipli read --id=ca22a324f761cd241ace4c9a35286496
+```
+
+_See code: [dist/src/commands/read.ts](https://github.com/Kira272921/snipli/blob/v0.0.1/dist/src/commands/read.ts)_
+
+## `snipli whoami`
+
+👀 Get the info about the logged in user
+
+```
+USAGE
+  $ snipli whoami
+
+DESCRIPTION
+  👀 Get the info about the logged in user
+
+EXAMPLES
+  $ snipli whoami
+```
+
+_See code: [dist/src/commands/whoami.ts](https://github.com/Kira272921/snipli/blob/v0.0.1/dist/src/commands/whoami.ts)_
 <!-- commandsstop -->
 * [`oex hello PERSON`](#oex-hello-person)
 * [`oex hello world`](#oex-hello-world)

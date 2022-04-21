@@ -1,6 +1,6 @@
 {
   "name": "snipli",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "✨ A command-line interface for quickly sharing code snippets for your local files",
   "author": "Kira272921",
   "bin": {
@@ -55,7 +55,8 @@
     "commands": "./dist/src/commands",
     "plugins": [
       "@oclif/plugin-help",
-      "@oclif/plugin-plugins"
+      "@oclif/plugin-plugins",
+      "@oclif/plugin-warn-if-update-available"
     ]
   },
   "scripts": {
