@@ -2,11 +2,13 @@ import { Command } from "@oclif/core";
 
 import chalk from "chalk";
 
-import revokeToken from "../utils/revokeToken";
+import revokeToken from "../lib/revokeToken";
 import getToken from "../utils/getToken";
 
 export default class Logout extends Command {
   static description = "📤 Logout from snipli";
+
+  static examples = ["snipli logout"];
 
   async run() {
     if (getToken() === null) {

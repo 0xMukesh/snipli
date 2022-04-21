@@ -3,18 +3,20 @@ import chalk from "chalk";
 
 import getToken from "../utils/getToken";
 
-const createGist = async (
+const updateGist = async (
   gistFileName: string,
   gistFileContent: string,
   gistDescription: string,
-  gistIsPublic: boolean
+  gistIsPublic: boolean,
+  gistId: string
 ) => {
   try {
     const octokit = new Octokit({
       auth: `${getToken()}`,
     });
 
-    const response = await octokit.request("POST /gists", {
+    const response = await octokit.request("PATCH /gists/{gist_id}", {
+      gist_id: gistId,
       headers: {
         accept: "application/vnd.github.v3+json",
       },
@@ -28,12 +30,12 @@ const createGist = async (
     });
 
     console.log(
-      chalk.green(`\nGist created successfully!\n\n${response.data.html_url}`)
+      chalk.green(`\nGist updated successfully!\n\n${response.data.html_url}`)
     );
   } catch (err) {
     console.log(
       chalk.red(
-        `\nSomething went wrong while creating the gist. Please try again.`
+        `\nSomething went wrong while updating the gist. Please try again.`
       )
     );
 
@@ -41,4 +43,4 @@ const createGist = async (
   }
 };
 
-export default createGist;
+export default updateGist;

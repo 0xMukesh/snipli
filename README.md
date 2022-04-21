@@ -1,109 +1,105 @@
-oclif-hello-world
-=================
+# snipli
 
-oclif example Hello World CLI
+✨ A command-line interface for quickly sharing code snippets for your local files
 
-[![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/oclif-hello-world.svg)](https://npmjs.org/package/oclif-hello-world)
-[![CircleCI](https://circleci.com/gh/oclif/hello-world/tree/main.svg?style=shield)](https://circleci.com/gh/oclif/hello-world/tree/main)
-[![Downloads/week](https://img.shields.io/npm/dw/oclif-hello-world.svg)](https://npmjs.org/package/oclif-hello-world)
-[![License](https://img.shields.io/npm/l/oclif-hello-world.svg)](https://github.com/oclif/hello-world/blob/main/package.json)
+- [Usage](#usage)
+- [Commands](#commands)
 
-<!-- toc -->
-* [Usage](#usage)
-* [Commands](#commands)
-<!-- tocstop -->
-* [Usage](#usage)
-* [Commands](#commands)
-<!-- tocstop -->
 # Usage
-<!-- usage -->
-```sh-session
-$ npm install -g gistly
-$ gistly COMMAND
-running command...
-$ gistly (--version)
-gistly/0.0.0 win32-x64 node-v16.13.0
-$ gistly --help [COMMAND]
+
+```bash
+$ npm install -g snipli
+$ snipli COMMAND
+Running command...
+$ snipli (--version)
+snipli/1.0.0 win32-x64 node-v16.13.0
+$ snipli --help [COMMAND]
 USAGE
-  $ gistly COMMAND
+  $ snipli COMMAND
 ...
 ```
-<!-- usagestop -->
-```sh-session
-$ npm install -g oclif-hello-world
-$ oex COMMAND
-running command...
-$ oex (--version)
-oclif-hello-world/0.0.0 darwin-x64 node-v16.13.1
-$ oex --help [COMMAND]
-USAGE
-  $ oex COMMAND
-...
-```
-<!-- usagestop -->
+
 # Commands
+
 <!-- commands -->
-* [`gistly hello PERSON`](#gistly-hello-person)
-* [`gistly hello world`](#gistly-hello-world)
-* [`gistly help [COMMAND]`](#gistly-help-command)
-* [`gistly plugins`](#gistly-plugins)
-* [`gistly plugins:install PLUGIN...`](#gistly-pluginsinstall-plugin)
-* [`gistly plugins:inspect PLUGIN...`](#gistly-pluginsinspect-plugin)
-* [`gistly plugins:install PLUGIN...`](#gistly-pluginsinstall-plugin-1)
-* [`gistly plugins:link PLUGIN`](#gistly-pluginslink-plugin)
-* [`gistly plugins:uninstall PLUGIN...`](#gistly-pluginsuninstall-plugin)
-* [`gistly plugins:uninstall PLUGIN...`](#gistly-pluginsuninstall-plugin-1)
-* [`gistly plugins:uninstall PLUGIN...`](#gistly-pluginsuninstall-plugin-2)
-* [`gistly plugins update`](#gistly-plugins-update)
 
-## `gistly hello PERSON`
+- [`snipli create`](#snipli-create)
+- [`snipli delete`](#snipli-delete)
+- [`snipli edit`](#snipli-edit)
+- [`snipli help [COMMAND]`](#snipli-help-command)
+- [`snipli id`](#snipli-id)
+- [`snipli login`](#snipli-login)
+- [`snipli logout`](#snipli-logout)
+- [`snipli plugins`](#snipli-plugins)
+- [`snipli read`](#snipli-read)
+- [`snipli whoami`](#snipli-whoami)
 
-Say hello
+## `snipli create`
+
+🦄 Create a new snippet of your local file on gist.github.com
 
 ```
 USAGE
-  $ gistly hello [PERSON] -f <value>
-
-ARGUMENTS
-  PERSON  Person to say hello to
+  $ snipli create -f <value> -d <value> [-p]
 
 FLAGS
-  -f, --from=<value>  (required) Whom is saying hello
+  -d, --description=<value>  (required) Description of the gist
+  -f, --file=<value>         (required) Path to the file of which you want to create a gist
+  -p, --[no-]public          Whether the gist should be public or not
 
 DESCRIPTION
-  Say hello
+  🦄 Create a new snippet of your local file on gist.github.com
 
 EXAMPLES
-  $ oex hello friend --from oclif
-  hello friend from oclif! (./src/commands/hello/index.ts)
+  $ snipli create --file=code.ts --description='Need help at line 59 of file code.ts' --public
 ```
 
-_See code: [dist/commands/hello/index.ts](https://github.com/Kira272921/gistly/blob/v0.0.0/dist/commands/hello/index.ts)_
+## `snipli delete`
 
-## `gistly hello world`
-
-Say hello world
+🚚 Delete a gist
 
 ```
 USAGE
-  $ gistly hello world
+  $ snipli delete -i <value>
+
+FLAGS
+  -i, --id=<value>  (required) ID of the gist which is to be deleted
 
 DESCRIPTION
-  Say hello world
+  🚚 Delete a gist
 
 EXAMPLES
-  $ oex hello world
-  hello world! (./src/commands/hello/world.ts)
+  $ snipli delete --id=bfce776b3ad1145f764d89c296fec605
 ```
 
-## `gistly help [COMMAND]`
+## `snipli edit`
 
-Display help for gistly.
+✏ Edit an existing gist
 
 ```
 USAGE
-  $ gistly help [COMMAND] [-n]
+  $ snipli edit -i <value> -f <value> -d <value> [-p]
+
+FLAGS
+  -d, --description=<value>  (required) The description of the Gist
+  -f, --file=<value>         (required) The path of the file which has the edited content
+  -i, --id=<value>           (required) ID of the Gist which you are going to edit
+  -p, --[no-]public          Whether the Gist is public or not
+
+DESCRIPTION
+  ✏ Edit an existing gist
+
+EXAMPLES
+  $ snipli edit --id=ca22a324f761cd241ace4c9a35286496 --file=updated-code.ts --description='Updated the code' --public
+```
+
+## `snipli help [COMMAND]`
+
+Display help for snipli.
+
+```
+USAGE
+  $ snipli help [COMMAND] [-n]
 
 ARGUMENTS
   COMMAND  Command to show help for.
@@ -112,454 +108,88 @@ FLAGS
   -n, --nested-commands  Include all nested commands in the output.
 
 DESCRIPTION
-  Display help for gistly.
+  Display help for snipli.
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.10/src/commands/help.ts)_
+## `snipli id`
 
-## `gistly plugins`
-
-List installed plugins.
+💡 Get the ID of a gist from it's link
 
 ```
 USAGE
-  $ gistly plugins [--core]
+  $ snipli id -l <value>
 
 FLAGS
-  --core  Show core plugins.
+  -l, --link=<value>  (required) Link of the gist
 
 DESCRIPTION
-  List installed plugins.
+  💡 Get the ID of a gist from it's link
 
 EXAMPLES
-  $ gistly plugins
+  $ snipli id --link=https://gist.github.com/Kira272921/bfce776b3ad1145f764d89c296fec605
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.0.11/src/commands/plugins/index.ts)_
+## `snipli login`
 
-## `gistly plugins:install PLUGIN...`
-
-Installs a plugin into the CLI.
+🔑 Login into snipli via GitHub
 
 ```
 USAGE
-  $ gistly plugins:install PLUGIN...
-
-ARGUMENTS
-  PLUGIN  Plugin to install.
-
-FLAGS
-  -f, --force    Run yarn install with force flag.
-  -h, --help     Show CLI help.
-  -v, --verbose
+  $ snipli login
 
 DESCRIPTION
-  Installs a plugin into the CLI.
-
-  Can be installed from npm or a git url.
-
-  Installation of a user-installed plugin will override a core plugin.
-
-  e.g. If you have a core plugin that has a 'hello' command, installing a user-installed plugin with a 'hello' command
-  will override the core plugin implementation. This is useful if a user needs to update core plugin functionality in
-  the CLI without the need to patch and update the whole CLI.
-
-ALIASES
-  $ gistly plugins add
+  🔑 Login into snipli via GitHub
 
 EXAMPLES
-  $ gistly plugins:install myplugin 
-
-  $ gistly plugins:install https://github.com/someuser/someplugin
-
-  $ gistly plugins:install someuser/someplugin
+  $ snipli login
 ```
 
-## `gistly plugins:inspect PLUGIN...`
+## `snipli logout`
 
-Displays installation properties of a plugin.
+📤 Logout from snipli
 
 ```
 USAGE
-  $ gistly plugins:inspect PLUGIN...
-
-ARGUMENTS
-  PLUGIN  [default: .] Plugin to inspect.
-
-FLAGS
-  -h, --help     Show CLI help.
-  -v, --verbose
+  $ snipli logout
 
 DESCRIPTION
-  Displays installation properties of a plugin.
+  📤 Logout from snipli
 
 EXAMPLES
-  $ gistly plugins:inspect myplugin
+  $ snipli logout
 ```
 
-## `gistly plugins:install PLUGIN...`
+## `snipli read`
 
-Installs a plugin into the CLI.
+📖 Read a gist locally using vim
 
 ```
 USAGE
-  $ gistly plugins:install PLUGIN...
-
-ARGUMENTS
-  PLUGIN  Plugin to install.
+  $ snipli read -i <value>
 
 FLAGS
-  -f, --force    Run yarn install with force flag.
-  -h, --help     Show CLI help.
-  -v, --verbose
+  -i, --id=<value>  (required) ID of the Gist
 
 DESCRIPTION
-  Installs a plugin into the CLI.
-
-  Can be installed from npm or a git url.
-
-  Installation of a user-installed plugin will override a core plugin.
-
-  e.g. If you have a core plugin that has a 'hello' command, installing a user-installed plugin with a 'hello' command
-  will override the core plugin implementation. This is useful if a user needs to update core plugin functionality in
-  the CLI without the need to patch and update the whole CLI.
-
-ALIASES
-  $ gistly plugins add
+  📖 Read a gist locally using vim
 
 EXAMPLES
-  $ gistly plugins:install myplugin 
-
-  $ gistly plugins:install https://github.com/someuser/someplugin
-
-  $ gistly plugins:install someuser/someplugin
+  $ snipli read --id=ca22a324f761cd241ace4c9a35286496
 ```
 
-## `gistly plugins:link PLUGIN`
+## `snipli whoami`
 
-Links a plugin into the CLI for development.
+👀 Get the info about the logged in user
 
 ```
 USAGE
-  $ gistly plugins:link PLUGIN
-
-ARGUMENTS
-  PATH  [default: .] path to plugin
-
-FLAGS
-  -h, --help     Show CLI help.
-  -v, --verbose
+  $ snipli whoami
 
 DESCRIPTION
-  Links a plugin into the CLI for development.
-
-  Installation of a linked plugin will override a user-installed or core plugin.
-
-  e.g. If you have a user-installed or core plugin that has a 'hello' command, installing a linked plugin with a 'hello'
-  command will override the user-installed or core plugin implementation. This is useful for development work.
+  👀 Get the info about the logged in user
 
 EXAMPLES
-  $ gistly plugins:link myplugin
+  $ snipli whoami
 ```
 
-## `gistly plugins:uninstall PLUGIN...`
-
-Removes a plugin from the CLI.
-
-```
-USAGE
-  $ gistly plugins:uninstall PLUGIN...
-
-ARGUMENTS
-  PLUGIN  plugin to uninstall
-
-FLAGS
-  -h, --help     Show CLI help.
-  -v, --verbose
-
-DESCRIPTION
-  Removes a plugin from the CLI.
-
-ALIASES
-  $ gistly plugins unlink
-  $ gistly plugins remove
-```
-
-## `gistly plugins:uninstall PLUGIN...`
-
-Removes a plugin from the CLI.
-
-```
-USAGE
-  $ gistly plugins:uninstall PLUGIN...
-
-ARGUMENTS
-  PLUGIN  plugin to uninstall
-
-FLAGS
-  -h, --help     Show CLI help.
-  -v, --verbose
-
-DESCRIPTION
-  Removes a plugin from the CLI.
-
-ALIASES
-  $ gistly plugins unlink
-  $ gistly plugins remove
-```
-
-## `gistly plugins:uninstall PLUGIN...`
-
-Removes a plugin from the CLI.
-
-```
-USAGE
-  $ gistly plugins:uninstall PLUGIN...
-
-ARGUMENTS
-  PLUGIN  plugin to uninstall
-
-FLAGS
-  -h, --help     Show CLI help.
-  -v, --verbose
-
-DESCRIPTION
-  Removes a plugin from the CLI.
-
-ALIASES
-  $ gistly plugins unlink
-  $ gistly plugins remove
-```
-
-## `gistly plugins update`
-
-Update installed plugins.
-
-```
-USAGE
-  $ gistly plugins update [-h] [-v]
-
-FLAGS
-  -h, --help     Show CLI help.
-  -v, --verbose
-
-DESCRIPTION
-  Update installed plugins.
-```
-<!-- commandsstop -->
-* [`oex hello PERSON`](#oex-hello-person)
-* [`oex hello world`](#oex-hello-world)
-* [`oex help [COMMAND]`](#oex-help-command)
-* [`oex plugins`](#oex-plugins)
-* [`oex plugins:inspect PLUGIN...`](#oex-pluginsinspect-plugin)
-* [`oex plugins:install PLUGIN...`](#oex-pluginsinstall-plugin)
-* [`oex plugins:link PLUGIN`](#oex-pluginslink-plugin)
-* [`oex plugins:uninstall PLUGIN...`](#oex-pluginsuninstall-plugin)
-* [`oex plugins update`](#oex-plugins-update)
-
-## `oex hello PERSON`
-
-Say hello
-
-```
-USAGE
-  $ oex hello [PERSON] -f <value>
-
-ARGUMENTS
-  PERSON  Person to say hello to
-
-FLAGS
-  -f, --from=<value>  (required) Whom is saying hello
-
-DESCRIPTION
-  Say hello
-
-EXAMPLES
-  $ oex hello friend --from oclif
-  hello friend from oclif! (./src/commands/hello/index.ts)
-```
-
-_See code: [dist/commands/hello/index.ts](https://github.com/oclif/hello-world/blob/v0.0.0/dist/commands/hello/index.ts)_
-
-## `oex hello world`
-
-Say hello world
-
-```
-USAGE
-  $ oex hello world
-
-DESCRIPTION
-  Say hello world
-
-EXAMPLES
-  $ oex hello world
-  hello world! (./src/commands/hello/world.ts)
-```
-
-## `oex help [COMMAND]`
-
-Display help for oex.
-
-```
-USAGE
-  $ oex help [COMMAND] [-n]
-
-ARGUMENTS
-  COMMAND  Command to show help for.
-
-FLAGS
-  -n, --nested-commands  Include all nested commands in the output.
-
-DESCRIPTION
-  Display help for oex.
-```
-
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.10/src/commands/help.ts)_
-
-## `oex plugins`
-
-List installed plugins.
-
-```
-USAGE
-  $ oex plugins [--core]
-
-FLAGS
-  --core  Show core plugins.
-
-DESCRIPTION
-  List installed plugins.
-
-EXAMPLES
-  $ oex plugins
-```
-
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.0.11/src/commands/plugins/index.ts)_
-
-## `oex plugins:inspect PLUGIN...`
-
-Displays installation properties of a plugin.
-
-```
-USAGE
-  $ oex plugins:inspect PLUGIN...
-
-ARGUMENTS
-  PLUGIN  [default: .] Plugin to inspect.
-
-FLAGS
-  -h, --help     Show CLI help.
-  -v, --verbose
-
-DESCRIPTION
-  Displays installation properties of a plugin.
-
-EXAMPLES
-  $ oex plugins:inspect myplugin
-```
-
-## `oex plugins:install PLUGIN...`
-
-Installs a plugin into the CLI.
-
-```
-USAGE
-  $ oex plugins:install PLUGIN...
-
-ARGUMENTS
-  PLUGIN  Plugin to install.
-
-FLAGS
-  -f, --force    Run yarn install with force flag.
-  -h, --help     Show CLI help.
-  -v, --verbose
-
-DESCRIPTION
-  Installs a plugin into the CLI.
-
-  Can be installed from npm or a git url.
-
-  Installation of a user-installed plugin will override a core plugin.
-
-  e.g. If you have a core plugin that has a 'hello' command, installing a user-installed plugin with a 'hello' command
-  will override the core plugin implementation. This is useful if a user needs to update core plugin functionality in
-  the CLI without the need to patch and update the whole CLI.
-
-ALIASES
-  $ oex plugins add
-
-EXAMPLES
-  $ oex plugins:install myplugin 
-
-  $ oex plugins:install https://github.com/someuser/someplugin
-
-  $ oex plugins:install someuser/someplugin
-```
-
-## `oex plugins:link PLUGIN`
-
-Links a plugin into the CLI for development.
-
-```
-USAGE
-  $ oex plugins:link PLUGIN
-
-ARGUMENTS
-  PATH  [default: .] path to plugin
-
-FLAGS
-  -h, --help     Show CLI help.
-  -v, --verbose
-
-DESCRIPTION
-  Links a plugin into the CLI for development.
-
-  Installation of a linked plugin will override a user-installed or core plugin.
-
-  e.g. If you have a user-installed or core plugin that has a 'hello' command, installing a linked plugin with a 'hello'
-  command will override the user-installed or core plugin implementation. This is useful for development work.
-
-EXAMPLES
-  $ oex plugins:link myplugin
-```
-
-## `oex plugins:uninstall PLUGIN...`
-
-Removes a plugin from the CLI.
-
-```
-USAGE
-  $ oex plugins:uninstall PLUGIN...
-
-ARGUMENTS
-  PLUGIN  plugin to uninstall
-
-FLAGS
-  -h, --help     Show CLI help.
-  -v, --verbose
-
-DESCRIPTION
-  Removes a plugin from the CLI.
-
-ALIASES
-  $ oex plugins unlink
-  $ oex plugins remove
-```
-
-## `oex plugins update`
-
-Update installed plugins.
-
-```
-USAGE
-  $ oex plugins update [-h] [-v]
-
-FLAGS
-  -h, --help     Show CLI help.
-  -v, --verbose
-
-DESCRIPTION
-  Update installed plugins.
-```
 <!-- commandsstop -->

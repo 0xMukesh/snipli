@@ -9,7 +9,18 @@ import getToken from "../utils/getToken";
 export default class Whoami extends Command {
   static description = "👀 Get the info about the logged in user";
 
+  static examples = ["snipli whoami"];
+
   async run() {
+    if (getToken() === null) {
+      console.log(
+        chalk.redBright(
+          "\nYou need to be logged in to get the info about the logged in user."
+        )
+      );
+      return;
+    }
+
     const spinner = ora("Fetching user info...").start();
 
     try {
