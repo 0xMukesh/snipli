@@ -6,7 +6,7 @@ import revokeToken from "../utils/revokeToken";
 import getToken from "../utils/getToken";
 
 export default class Logout extends Command {
-  static description = "🔑 Logout from snipli";
+  static description = "📤 Logout from snipli";
 
   async run() {
     if (getToken() === null) {

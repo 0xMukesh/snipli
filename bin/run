@@ -3,7 +3,7 @@
 if (process.argv.slice(2).length == 0) {
   const figchalk = require("figchalk");
 
-  console.log(figchalk.mix("G i s t l y", "redBright"));
+  console.log(figchalk.mix("S n i p l i", "redBright"));
 }
 
 require("@oclif/command")

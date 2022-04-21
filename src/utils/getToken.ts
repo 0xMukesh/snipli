@@ -1,5 +1,4 @@
 import fs from "fs";
-import objectPath from "object-path";
 
 import { tokenConfigFileLocation } from "../constants/constants";
 

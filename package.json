@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "description": "✨ A command-line interface for quickly sharing code snippets for your local files",
   "author": "Kira272921",
-  "api": "http://localhost:3000",
   "bin": {
     "snipli": "./bin/run"
   },
@@ -29,7 +28,9 @@
     "figchalk": "^1.0.3",
     "inquirer": "^8.2.2",
     "object-path": "^0.11.8",
-    "open": "^8.4.0"
+    "open": "^8.4.0",
+    "ora": "5.4.1",
+    "shelljs": "^0.8.5"
   },
   "devDependencies": {
     "@oclif/test": "^2",
@@ -37,12 +38,14 @@
     "@types/inquirer": "^8.2.1",
     "@types/node": "^16.11.27",
     "@types/object-path": "^0.11.1",
+    "@types/shelljs": "^0.8.11",
     "eslint": "^7.32.0",
     "eslint-config-oclif": "^4",
     "eslint-config-oclif-typescript": "^1.0.2",
     "globby": "^11",
     "oclif": "^2",
     "shx": "^0.3.4",
+    "ts-node": "^10.7.0",
     "tslib": "^2.3.1",
     "typescript": "^4.6.3"
   },

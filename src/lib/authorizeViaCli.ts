@@ -6,7 +6,7 @@ import axios from "axios";
 
 import tokenConfig from "../utils/tokenConfig";
 
-import { api } from "../../package.json";
+import { apiUrl } from "../constants/constants";
 
 const authorizeViaCli = async () => {
   inquirer
@@ -40,7 +40,7 @@ const authorizeViaCli = async () => {
           resolve = _resolve;
         });
 
-        const authAPI = await axios.post(`${api}/authorize`);
+        const authAPI = await axios.post(`${apiUrl}/authorize`);
 
         app.get("/callback", async (req: Request, res: Response) => {
           resolve(req.query.code);
@@ -53,7 +53,7 @@ const authorizeViaCli = async () => {
 
         const code = await p;
 
-        const response = await axios.post(`${api}/token`, { code });
+        const response = await axios.post(`${apiUrl}/token`, { code });
 
         const access_token = response.data.token;
 

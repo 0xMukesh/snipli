@@ -1,6 +1,7 @@
 import { Command, Flags } from "@oclif/core";
 import chalk from "chalk";
 import fs from "fs";
+import ora from "ora";
 
 import createGist from "../lib/createGist";
 
@@ -41,11 +42,18 @@ export default class Create extends Command {
       return;
     }
 
-    await createGist(
-      getFileName(flags.file) as string,
-      fs.readFileSync(flags.file, "utf8"),
-      flags.description,
-      flags.public
-    );
+    const spinner = ora("Creating gist...").start();
+
+    try {
+      await createGist(
+        getFileName(flags.file) as string,
+        fs.readFileSync(flags.file, "utf8"),
+        flags.description,
+        flags.public
+      );
+      spinner.succeed();
+    } catch (err) {
+      spinner.fail();
+    }
   }
 }
