@@ -21,8 +21,6 @@ USAGE
 
 # Commands
 
-<!-- commands -->
-
 - [`snipli create`](#snipli-create)
 - [`snipli delete`](#snipli-delete)
 - [`snipli edit`](#snipli-edit)
@@ -53,8 +51,6 @@ EXAMPLES
   $ snipli create --file=code.ts --description='Need help at line 59 of file code.ts' --public
 ```
 
-_See code: [dist/src/commands/create.ts](https://github.com/Kira272921/snipli/blob/v1.0.0/dist/src/commands/create.ts)_
-
 ## `snipli delete`
 
 🚚 Delete a gist
@@ -72,8 +68,6 @@ DESCRIPTION
 EXAMPLES
   $ snipli delete --id=bfce776b3ad1145f764d89c296fec605
 ```
-
-_See code: [dist/src/commands/delete.ts](https://github.com/Kira272921/snipli/blob/v1.0.0/dist/src/commands/delete.ts)_
 
 ## `snipli edit`
 
