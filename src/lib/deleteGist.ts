@@ -17,7 +17,7 @@ const deleteGist = async (gistId: string) => {
       },
       gist_id: gistId,
     });
-    spinner.succeed(`Gist ${chalk.green(gistId)} deleted`);
+    spinner.succeed(`Gist ${chalk.green(gistId)} has been deleted`);
   } catch (err) {
     console.log(
       chalk.redBright("Something went wrong while deleting the gist")
