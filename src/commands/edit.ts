@@ -72,9 +72,9 @@ export default class Edit extends Command {
         flags.public,
         flags.id as string
       );
-      spinner.succeed();
+      spinner.succeed("Updated the gist successfully!");
     } catch (err) {
-      spinner.fail();
+      spinner.fail("Error while updating the gist!");
     }
   }
 }
