@@ -66,9 +66,9 @@ export default class Create extends Command {
         flags.description,
         flags.public
       );
-      spinner.succeed();
+      spinner.succeed("Gist has been created successfully!");
     } catch (err) {
-      spinner.fail();
+      spinner.fail("Error while creating the gist");
     }
   }
 }

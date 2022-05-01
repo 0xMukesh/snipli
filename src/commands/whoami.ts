@@ -29,7 +29,7 @@ export default class Whoami extends Command {
       });
       spinner.succeed();
     } catch (err) {
-      spinner.fail();
+      spinner.fail("Error while fetching user info");
       console.log(chalk.red(err));
     }
   }
