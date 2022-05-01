@@ -67,6 +67,9 @@
     "version": "oclif readme && git add README.md",
     "watch": "tsc -b -w"
   },
+  "resolutions": {
+    "figchalk/**/yargs/**/yargs-parser": ">=13.1.2"
+  },
   "engines": {
     "node": ">=12.0.0"
   },
