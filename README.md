@@ -1,4 +1,6 @@
-# snipli
+# 🦄 snipli
+
+![](https://user-images.githubusercontent.com/90365542/166135580-7483919c-c44e-45be-bdf0-3b259292f341.png)
 
 ✨ A command-line interface for quickly sharing code snippets for your local files
 
