@@ -1,6 +1,6 @@
 # 🦄 snipli
 
-![](https://user-images.githubusercontent.com/90365542/166135580-7483919c-c44e-45be-bdf0-3b259292f341.png)
+![snipli](https://socialify.git.ci/Kira272921/snipli/image?description=1&forks=1&language=1&logo=https%3A%2F%2Fuser-images.githubusercontent.com%2F90365542%2F166135580-7483919c-c44e-45be-bdf0-3b259292f341.png&name=1&owner=1&pattern=Solid&pulls=1&stargazers=1&theme=Dark)
 
 <a href="https://www.producthunt.com/posts/snipli?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-snipli" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=344997&theme=dark" alt="Snipli - Convert&#0032;your&#0032;local&#0032;files&#0032;into&#0032;a&#0032;gist&#0032;in&#0032;just&#0032;a&#0032;snap | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a> <a href="https://www.producthunt.com/posts/snipli?utm_source=badge-top-post-badge&utm_medium=badge&utm_souce=badge-snipli" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/top-post-badge.svg?post_id=344997&theme=dark&period=daily" alt="Snipli - Convert&#0032;your&#0032;local&#0032;files&#0032;into&#0032;a&#0032;gist&#0032;in&#0032;just&#0032;a&#0032;snap | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
 
