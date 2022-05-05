@@ -15,10 +15,10 @@ const readGist = async (gistId: string) => {
 
   fs.writeFileSync(`.snipli/temp/${file}`, content);
 
-  console.log(chalk.green("Opening the file in vim..."));
-
   // get configured EDITOR
   const EDITOR: string = process.env.EDITOR || "vim";
+
+  console.log(chalk.green(`Opening the file in ${chalk.bold(EDITOR)}...`));
 
   const vim = require("child_process").spawn(EDITOR, [`.snipli/temp/${file}`], {
     stdio: "inherit",
