@@ -203,7 +203,7 @@ EXAMPLES
 
 ### Avneesh Agarwal
 
-- Website: https://www.avneesh.tech/
+- Website: https://www.avneesh.tech
 - Twitter: [@avneesh0612](https://twitter.com/avneesh0612)
 - Github: [@avneesh0612](https://github.com/avneesh0612)
 - LinkedIn: [@avneesh0612](https://www.linkedin.com/in/avneesh0612)
