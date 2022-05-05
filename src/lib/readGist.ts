@@ -17,9 +17,13 @@ const readGist = async (gistId: string) => {
 
   console.log(chalk.green("Opening the file in vim..."));
 
-  var vim = require("child_process").spawn("vim", [`.snipli/temp/${file}`], {
+  // get configured EDITOR
+  const EDITOR: string = process.env.EDITOR || "vim";
+
+  const vim = require("child_process").spawn(EDITOR, [`.snipli/temp/${file}`], {
     stdio: "inherit",
   });
+
   vim.on("exit", () => {
     shelljs.rm("-rf", ".snipli");
   });
