@@ -63,8 +63,7 @@ const authorizeViaCli = async () => {
 
         process.exit(0);
       } catch (error) {
-        console.log(error);
-        console.log(chalk.redBright(error));
+        console.error(chalk.redBright(error));
         process.exit(1);
       }
     });
