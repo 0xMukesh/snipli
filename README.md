@@ -162,7 +162,7 @@ EXAMPLES
 
 ## `snipli read`
 
-📖 Read a gist locally using vim
+📖 Read a gist locally using the configured editor 
 
 ```
 USAGE
@@ -172,7 +172,7 @@ FLAGS
   -i, --id=<value>  (required) ID of the Gist
 
 DESCRIPTION
-  📖 Read a gist locally using vim
+  📖 Read a gist locally using the configured editor 
 
 EXAMPLES
   $ snipli read --id=ca22a324f761cd241ace4c9a35286496
