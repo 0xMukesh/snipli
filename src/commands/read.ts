@@ -3,7 +3,7 @@ import { Command, Flags } from "@oclif/core";
 import readGist from "../lib/readGist";
 
 export default class Read extends Command {
-  static description = "📖 Read a gist locally using the configured editor.";
+  static description = "📖 Read a gist locally using the configured editor";
 
   static examples = ["snipli read --id=ca22a324f761cd241ace4c9a35286496"];
 
