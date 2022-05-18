@@ -43,7 +43,7 @@
     "eslint-config-oclif": "4.0.0",
     "eslint-config-oclif-typescript": "1.0.2",
     "globby": "11.1.0",
-    "oclif": "2.6.3",
+    "oclif": "3.0.1",
     "shx": "0.3.4",
     "ts-node": "10.7.0",
     "tslib": "2.4.0",
