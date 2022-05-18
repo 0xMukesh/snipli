@@ -1,6 +1,6 @@
 {
   "name": "snipli",
-  "version": "1.1.21",
+  "version": "1.1.22",
   "description": "✨ A command-line interface for quickly sharing code snippets for your local files",
   "author": "Kira272921",
   "bin": {
