@@ -29,7 +29,7 @@
     "inquirer": "^8.2.2",
     "object-path": "^0.11.8",
     "open": "^8.4.0",
-    "ora": "5.4.1",
+    "ora": "6.1.0",
     "shelljs": "^0.8.5"
   },
   "devDependencies": {
