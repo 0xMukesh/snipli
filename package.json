@@ -33,7 +33,7 @@
     "shelljs": "^0.8.5"
   },
   "devDependencies": {
-    "@oclif/test": "2.1.0",
+    "@oclif/test": "2.1.1",
     "@types/express": "4.17.13",
     "@types/inquirer": "8.2.1",
     "@types/node": "16.11.45",
