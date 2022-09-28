@@ -100,10 +100,10 @@
     "@types/qs" "*"
     "@types/serve-static" "*"
 
-"@types/inquirer@8.2.1":
-  version "8.2.1"
-  resolved "https://registry.yarnpkg.com/@types/inquirer/-/inquirer-8.2.1.tgz#28a139be3105a1175e205537e8ac10830e38dbf4"
-  integrity sha512-wKW3SKIUMmltbykg4I5JzCVzUhkuD9trD6efAmYgN2MrSntY0SMRQzEnD3mkyJ/rv9NLbTC7g3hKKE86YwEDLw==
+"@types/inquirer@9.0.2":
+  version "9.0.2"
+  resolved "https://registry.yarnpkg.com/@types/inquirer/-/inquirer-9.0.2.tgz#846b141c17608aad9fc62572280753bb6ec09184"
+  integrity sha512-MQc3adiIh/rDxLkjnvL03rSvuHg+/dKif4dn/MRsnE+oU1bAdyuDbW0w+ewR1M/M/u/Z0YAbw7NZYCpgQ5SW8A==
   dependencies:
     "@types/through" "*"
     rxjs "^7.2.0"
