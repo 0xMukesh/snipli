@@ -842,13 +842,12 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
-"@types/inquirer@8.2.1":
-  version "8.2.1"
-  resolved "https://registry.yarnpkg.com/@types/inquirer/-/inquirer-8.2.1.tgz#28a139be3105a1175e205537e8ac10830e38dbf4"
-  integrity sha512-wKW3SKIUMmltbykg4I5JzCVzUhkuD9trD6efAmYgN2MrSntY0SMRQzEnD3mkyJ/rv9NLbTC7g3hKKE86YwEDLw==
+"@types/inquirer@8.2.4":
+  version "8.2.4"
+  resolved "https://registry.yarnpkg.com/@types/inquirer/-/inquirer-8.2.4.tgz#f7f0c76c65870c7bbc80a112c9c77ffcf7f158c1"
+  integrity sha512-Pxxx3i3AyK7vKAj3LRM/vF7ETcHKiLJ/u5CnNgbz/eYj/vB3xGAYtRxI5IKtq0hpe5iFHD22BKV3n6WHUu0k4Q==
   dependencies:
     "@types/through" "*"
-    rxjs "^7.2.0"
 
 "@types/json-schema@^7.0.7":
   version "7.0.11"
@@ -4908,7 +4907,7 @@ rxjs@^6.6.3:
   dependencies:
     tslib "^1.9.0"
 
-rxjs@^7.2.0, rxjs@^7.5.5:
+rxjs@^7.5.5:
   version "7.5.5"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-7.5.5.tgz#2ebad89af0f560f460ad5cc4213219e1f7dd4e9f"
   integrity sha512-sy+H0pQofO95VDmFLzyaw9xNJU4KTRSwQIGM6+iG3SypAtCiLDzpeG8sJrNCWn2Up9km+KhkvTdbkrdy+yzZdw==
