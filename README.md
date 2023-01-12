@@ -195,11 +195,9 @@ EXAMPLES
 
 ## Authors
 
-### Kira
+### Mukesh
 
-- Website: https://kiradev.co
-- Twitter: [@kira_272921](https://twitter.com/kira_272921)
-- Discord: https://links.kiradev.co/discord
+- Twitter: [@0xMukesh](https://twitter.com/0xMukesh)
 
 ### Avneesh Agarwal
 
